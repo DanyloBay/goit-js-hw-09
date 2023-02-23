@@ -1,0 +1,15 @@
+.switchers
+{
+    display: flex;
+    gap: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.switchers button[data-start],
+.switchers button[data-stop]{
+    padding: 10px 20px;
+    border-radius: 2px;
+}
