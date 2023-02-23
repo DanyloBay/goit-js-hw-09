@@ -15,6 +15,8 @@ const refs = {
 
 const ALERT_DELAY = 3000;
 
+const date = new Date();
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -35,11 +37,9 @@ startBtnDisabled(true);
 
 // Timer
 
-const date = Date.now();
-
 refs.startBtn.addEventListener('click', () => {
   const timeId = setInterval(() => {
-    let ms = new Date(refs.timePicker.value) - date;
+    const ms = new Date(refs.timePicker.value) - date;
     startBtnDisabled(true);
     // ms -= 1000;
     if (ms >= 0) {
