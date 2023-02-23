@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Countdown timer</title>
     <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/02-timer.css">
   </head>
+
   <body>
     <p><a href="index.html">Go back</a></p>
 
     <input type="text" id="datetime-picker" />
-    <button type="button" data-start>Start</button>
+    <button type="button" data-start >Start</button>
 
     <div class="timer">
       <div class="field">
@@ -30,6 +32,16 @@
         <span class="label">Seconds</span>
       </div>
     </div>
+
+    <!-- Custom Alert -->
+
+    <div class="alert is-hidden"><p class="text-alert">Please choose a date in the future</p>
+        <div class="js-close">
+          <img src="/images/close.svg" alt="close icon">
+        </div>
+    </div>
+
+    <!-- Custom Alert -->
 
     <script src="js/02-timer.js" type="module"></script>
   </body>
