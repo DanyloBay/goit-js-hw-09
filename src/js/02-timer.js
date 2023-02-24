@@ -15,15 +15,13 @@ const refs = {
 
 const ALERT_DELAY = 3000;
 
-const date = new Date();
-
 const options = {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    if (selectedDates[0] < date) {
+    if (selectedDates[0] < new Date()) {
       showNotification();
     } else {
       startBtnDisabled(false);
@@ -37,11 +35,14 @@ startBtnDisabled(true);
 
 // Timer
 
+function addLeadingZero(value) {
+  return value.toString().padStart(2, '0');
+}
+
 refs.startBtn.addEventListener('click', () => {
   const timeId = setInterval(() => {
-    const ms = new Date(refs.timePicker.value) - date;
+    const ms = new Date(refs.timePicker.value) - new Date();
     startBtnDisabled(true);
-    // ms -= 1000;
     if (ms >= 0) {
       let convertTimeObject = convertMs(ms);
       refs.dateOut.textContent = addLeadingZero(convertTimeObject.days);
@@ -53,10 +54,6 @@ refs.startBtn.addEventListener('click', () => {
     }
   }, 1000);
 });
-
-function addLeadingZero(value) {
-  return value.toString().padStart(2, '0');
-}
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time
