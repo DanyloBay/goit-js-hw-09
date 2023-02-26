@@ -40,7 +40,7 @@ function addLeadingZero(value) {
 }
 
 refs.startBtn.addEventListener('click', () => {
-  const timeId = setInterval(() => {
+  const timeoutId = setInterval(() => {
     const ms = new Date(refs.timePicker.value) - new Date();
     startBtnDisabled(true);
     if (ms >= 0) {
@@ -50,7 +50,7 @@ refs.startBtn.addEventListener('click', () => {
       refs.minutOut.textContent = addLeadingZero(convertTimeObject.minutes);
       refs.secondOut.textContent = addLeadingZero(convertTimeObject.seconds);
     } else {
-      clearInterval(timeId);
+      clearInterval(timeoutId);
     }
   }, 1000);
 });
