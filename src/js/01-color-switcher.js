@@ -1,4 +1,4 @@
-let timeId = null;
+let timeoutId = null;
 
 const refs = {
   startBtn: document.querySelector('button[data-start]'),
@@ -8,14 +8,14 @@ const refs = {
 refs.startBtn.addEventListener('click', onStartChangeBodyColorClick);
 
 refs.stopBtn.addEventListener('click', () => {
-  clearInterval(timeId);
+  clearInterval(timeoutId);
   startBtnDisabled(false);
   stopBtnDisabled(true);
 });
 
 function onStartChangeBodyColorClick() {
   startBtnDisabled(true);
-  timeId = setInterval(() => {
+  timeoutId = setInterval(() => {
     document.body.style.backgroundColor = getRandomHexColor();
   }, 1000);
   stopBtnDisabled(false);
