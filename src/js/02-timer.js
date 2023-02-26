@@ -3,6 +3,8 @@ import flatpickr from 'flatpickr';
 // Додатковий імпорт стилів
 import 'flatpickr/dist/flatpickr.min.css';
 
+let timeId = null;
+
 const refs = {
   timePicker: document.querySelector('#datetime-picker'),
   startBtn: document.querySelector('button[data-start]'),
@@ -12,8 +14,6 @@ const refs = {
   minutOut: document.querySelector('.value[data-minutes]'),
   secondOut: document.querySelector('.value[data-seconds]'),
 };
-
-const ALERT_DELAY = 3000;
 
 const options = {
   enableTime: true,
@@ -87,7 +87,9 @@ refs.alert.addEventListener('click', () => {
 
 function showNotification() {
   refs.alert.classList.remove('is-hidden');
-  timeId = setTimeout(hideNotification, ALERT_DELAY);
+  timeId = setTimeout(() => {
+    hideNotification();
+  }, 3000);
 }
 
 function hideNotification() {
