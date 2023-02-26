@@ -19,12 +19,12 @@ function onStartChangeBodyColorClick() {
   stopBtnDisabled(false);
 }
 
-function startBtnDisabled(bool) {
-  refs.startBtn.disabled = bool;
+function startBtnDisabled(boolean) {
+  refs.startBtn.disabled = boolean;
 }
 
-function stopBtnDisabled(bool) {
-  refs.stopBtn.disabled = bool;
+function stopBtnDisabled(boolean) {
+  refs.stopBtn.disabled = boolean;
 }
 
 function getRandomHexColor() {
